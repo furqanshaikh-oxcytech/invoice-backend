@@ -6,7 +6,7 @@ const authRoutes = require("../routes/auth");
 require("dotenv").config();
 
 const app = express();
-
+// add comment
 // app.use(
 //   cors({
 //     origin: "https://project-app-nem-frontend.vercel.app",
