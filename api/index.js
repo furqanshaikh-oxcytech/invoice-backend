@@ -6,8 +6,6 @@ const authRoutes = require("../routes/auth");
 require("dotenv").config();
 
 const app = express();
-// add helmet
-
 
 // app.use(
 //   cors({
