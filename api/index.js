@@ -6,20 +6,23 @@ const authRoutes = require("../routes/auth");
 require("dotenv").config();
 
 const app = express();
+// add helmet
 
-app.use(
-  cors({
-    origin: "https://project-app-nem-frontend.vercel.app",
-    allowedHeaders: ["Accept", "Content-Type", "Authorization"],
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-    credentials: true,
-  })
-);
+
+// app.use(
+//   cors({
+//     origin: "https://project-app-nem-frontend.vercel.app",
+//     allowedHeaders: ["Accept", "Content-Type", "Authorization"],
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+//     preflightContinue: false,
+//     optionsSuccessStatus: 204,
+//     credentials: true,
+//   })
+// );
 
 // Middleware
 app.use(bodyParser.json());
+app.use(cors())
 
 // Routes
 app.use("/auth", authRoutes);

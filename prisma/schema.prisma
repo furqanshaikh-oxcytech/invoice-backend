@@ -29,3 +29,11 @@ model Company {
   name   String
   users  User[]
 }
+
+model Detail {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String
+  serviceType String
+  date        DateTime
+}
