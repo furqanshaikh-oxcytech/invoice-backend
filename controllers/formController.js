@@ -5,9 +5,9 @@ const prisma = new PrismaClient();
 
 exports.formDetails = [
   // Validate and sanitize inputs
-  body('name').trim().isLength({ min: 3 }).withMessage('Name is required').escape(),
+  body('name').trim().isLength({ min: 4 }).withMessage('Name must be at least 4 characters long').escape(),
   body('email').isEmail().withMessage('Invalid email address').normalizeEmail(),
-  body('serviceType').trim().isLength({ min: 4 }).withMessage('Service type is required').escape(),
+  body('serviceType').trim().isLength({ min: 4 }).withMessage('Service must be at least 4 characters long').escape(),
   
 
   async (req, res) => {
