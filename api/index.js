@@ -8,8 +8,8 @@ require("dotenv").config();
 const app = express();
 
 // Middleware
-app.use(express.json()); // Replaces bodyParser.json()
-app.use(cors()); // Use default CORS settings or uncomment and adjust if needed
+app.use(express.json()); 
+// app.use(cors());
 app.use(helmet());
 
 // Routes
