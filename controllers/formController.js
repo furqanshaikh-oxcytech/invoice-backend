@@ -1,6 +1,6 @@
 
 const { body, validationResult } = require('express-validator');
-const { PrismaClient } = require('@prisma/client'); // Use PrismaClient, not just @prisma/client
+const { PrismaClient } = require('@prisma/client'); 
 const prisma = new PrismaClient();
 
 exports.formDetails = [
@@ -11,7 +11,6 @@ exports.formDetails = [
   
 
   async (req, res) => {
-    // Check for validation errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -37,3 +36,15 @@ exports.formDetails = [
     }
   }
 ];
+
+
+exports.getDetails = async (req, res) => {
+  try {
+    const details = await prisma.detail.findMany({});
+    res.status(200).json(details);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  } finally {
+    await prisma.$disconnect();
+  }
+};
